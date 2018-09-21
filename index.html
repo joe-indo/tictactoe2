@@ -1,0 +1,184 @@
+<html>
+<script>
+
+grid = [
+
+		["--","--","--"],
+		["--","--","--"],
+		["--","--","--"]
+
+	];
+
+var v = 0;
+var s = 0;
+var t = 0;
+var c = 0;
+var win = false;
+var val = true;
+
+alert("Welcome to Tic Tac Toe!  Please decide who will be X and O");
+alert("If you do not enter anything when asked for row or column the program will take a value of zero");
+
+	function getInput(grid){
+
+		while(win == false){
+		if (t%2 == 0){
+		alert("Choose an unoccuppied spot X");
+		} else {
+		alert("Choose an unoccuppied spot O");
+		}
+
+		alert(grid[0][0] + "|" + grid[0][1] + "|" + grid[0][2] + "\n" +
+		      grid[1][0] + "|" + grid[1][1] + "|" + grid[1][2] + "\n" +
+		      grid[2][0] + "|" + grid[2][1] + "|" + grid[2][2]);
+
+		do{
+		taken = false;
+
+		do{
+		v = prompt("Row");
+			v = Number(v);
+			if (isNaN(v) == true) {
+                	alert("Input must be 0, 1 or 2");
+			val = false;
+            		} else if (Number.isInteger(v) == false) {
+                	alert("Input must be 0, 1 or 2");
+			val = false;
+            		} else if (v < 0) {
+                	alert("Input must be 0, 1 or 2");
+			val = false;
+            		} else if (v > 2){
+                	alert("Input must be 0, 1 or 2");
+			val = false;
+	    		} else {
+			val = true;
+			}
+		}while(val == false)	
+
+		do{
+		s = prompt("Column");
+			s = Number(s);
+			if (isNaN(s) == true) {
+                	alert("Input must be 0, 1 or 2");
+			val = false;
+            		} else if (Number.isInteger(s) == false) {
+                	alert("Input must be 0, 1 or 2");
+			val = false;
+            		} else if (s < 0) {
+                	alert("Input must be 0, 1 or 2");
+			val = false;
+            		} else if (s > 2){
+                	alert("Input must be 0, 1 or 2");
+			val = false;
+	    		} else if (grid[v][s] != "--"){
+			alert("That spot is already taken!");
+			taken = true;
+			} else {
+			val = true;
+			}
+		c - 1;
+		}while(val == false)
+
+		c ++;
+		}while(taken)
+
+		if(t%2 == 0){
+		grid[v][s] = "X";
+		} else {
+		grid[v][s] = "O";
+		}
+
+		winner(grid);
+
+		alert(grid[0][0] + "|" + grid[0][1] + "|" + grid[0][2] + "\n" +
+		      grid[1][0] + "|" + grid[1][1] + "|" + grid[1][2] + "\n" +
+		      grid[2][0] + "|" + grid[2][1] + "|" + grid[2][2]);
+
+		t ++;
+		getInput(grid);
+		}
+	}
+
+		function winner(grid){
+	
+			if (grid[0][0] == "X" && grid[0][1] == "X" && grid[0][2] == "X"){
+			alert("Player X wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[1][0] == "X" && grid[1][1] == "X" && grid[1][2] == "X"){
+			alert("Player X wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[2][0] == "X" && grid[2][1] == "X" && grid[2][2] == "X"){
+			alert("Player X wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[0][0] == "X" && grid[1][0] == "X" && grid[2][0] == "X"){
+			alert("Player X wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[0][1] == "X" && grid[1][1] == "X" && grid[2][1] == "X"){
+			alert("Player X wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[0][2] == "X" && grid[1][2] == "X" && grid[2][2] == "X"){
+			alert("Player X wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[0][0] == "X" && grid[1][1] == "X" && grid[2][2] == "X"){
+			alert("Player X wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[0][2] == "X" && grid[1][1] == "X" && grid[2][0] == "X"){
+			alert("Player X wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[0][0] == "O" && grid[0][1] == "O" && grid[0][2] == "O"){
+			alert("Player O wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[1][0] == "O" && grid[1][1] == "O" && grid[1][2] == "O"){
+			alert("Player O wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[2][0] == "O" && grid[2][1] == "O" && grid[2][2] == "O"){
+			alert("Player O wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[0][0] == "O" && grid[1][0] == "O" && grid[2][0] == "O"){
+			alert("Player O wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[0][1] == "O" && grid[1][1] == "O" && grid[2][1] == "O"){
+			alert("Player O wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[0][2] == "O" && grid[1][2] == "O" && grid[2][2] == "O"){
+			alert("Player O wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[0][0] == "O" && grid[1][1] == "O" && grid[2][2] == "O"){
+			alert("Player O wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (grid[0][2] == "O" && grid[1][1] == "O" && grid[2][0] == "O"){
+			alert("Player O wins!  The game will now restart.");
+			win = true;
+			location.reload();
+			} else if (c == 9){
+			alert("It's a draw!  The game will now restart.");
+			win = true;
+			location.reload();
+			}
+
+		}
+
+</script>
+<body>
+
+<center>
+<button onclick="getInput(grid)" type="button"><b><i>Run</i></b></button>
+</center>
+
+</body>
+</html>
